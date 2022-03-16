@@ -25,3 +25,4 @@ with open("_toc.yml", "w") as f:
             if file.startswith(label + "/"):
                 f.write(f"      - file: {file.replace('.ipynb','')}\n")
                 remove_colab_link(file)  # First cell must contain title.
+                print(file, "added")
