@@ -26,6 +26,7 @@ jobs:
       run: |
         pip install -r requirements.txt
         python toc_generator.py
+        python colab_remover.py
     # Build the book
     - name: Build the book
       run: |
