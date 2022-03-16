@@ -3,14 +3,12 @@
 
 import nbformat as nbf
 
-with open("/home/patel_zeel/probml-notebooks/notebooks-d2l/batchnorm_torch.ipynb") as f:
-    data = nbf.read(f, nbf.NO_CONVERT)
-    if data["cells"][0]["metadata"]["id"] == "view-in-github":
-        data["cells"].pop(0)
 
-with open(
-    "/home/patel_zeel/probml-notebooks/notebooks-d2l/batchnorm_torch.ipynb", "w"
-) as f:
-    nbf.write(data, f)
+def remove_colab_link(filename):
+    with open(filename, "r") as f:
+        data = nbf.read(f, nbf.NO_CONVERT)
+        if data["cells"][0]["metadata"]["id"] == "view-in-github":
+            data["cells"].pop(0)
 
-pass
+    with open(filename, "w") as f:
+        nbf.write(data, f)

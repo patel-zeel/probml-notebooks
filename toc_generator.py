@@ -1,4 +1,5 @@
 from glob import glob
+from colab_remover import remove_colab_link
 
 files = glob("*/*.ipynb")
 # print(files)
@@ -23,3 +24,4 @@ with open("_toc.yml", "w") as f:
         for file in sorted(files):
             if file.startswith(label + "/"):
                 f.write(f"      - file: {file.replace('.ipynb','')}\n")
+                remove_colab_link(file)  # First cell must contain title.
